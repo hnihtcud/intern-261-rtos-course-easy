@@ -17,9 +17,11 @@
 4. `BRINGUP_STACK_WORDS` = 96 words = 384 bytes. Task này có đủ không? Vì sao?
    Task này em dự đoán là đủ. Stack dùng để lưu biến cục bộ, dữ liệu việc gọi hàm và quay về cũng như ngữ cảnh thanh ghi khi bị tạm dùng để chuyển task khác. Vì task chỉ toggle GPIO và gọi vTaskDelay(), không dùng biến cục bộ lớn hoặc đệ quy nên em dự đoán 384 bytes là đủ.
 5. Trước khi map handler, linker sẽ báo lỗi gì (đoạn nguyên văn thông báo):
+```text
 C:/PROGRA~2/ARMGNU~1/14EFD8~1.2RE/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/bin/ld.exe: CMakeFiles/Week1_ex1.dir/FreeRTOS/portable/GCC/ARM_CM3/port.c.obj: in function `SVC_Handler':
 D:/RTOS/Week1/Week1_ex1/FreeRTOS/portable/GCC/ARM_CM3/port.c:230: multiple definition of `SVC_Handler'; CMakeFiles/Week1_ex1.dir/Core/Src/stm32f1xx_it.c.obj:D:/RTOS/Week1/Week1_ex1/Core/Src/stm32f1xx_it.c:146: first defined here
 C:/PROGRA~2/ARMGNU~1/14EFD8~1.2RE/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/bin/ld.exe: CMakeFiles/Week1_ex1.dir/FreeRTOS/portable/GCC/ARM_CM3/port.c.obj: in function `PendSV_Handler':
 D:/RTOS/Week1/Week1_ex1/FreeRTOS/portable/GCC/ARM_CM3/port.c:459: multiple definition of `PendSV_Handler'; CMakeFiles/Week1_ex1.dir/Core/Src/stm32f1xx_it.c.obj:D:/RTOS/Week1/Week1_ex1/Core/Src/stm32f1xx_it.c:172: first defined here
 C:/PROGRA~2/ARMGNU~1/14EFD8~1.2RE/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/bin/ld.exe: CMakeFiles/Week1_ex1.dir/FreeRTOS/portable/GCC/ARM_CM3/port.c.obj: in function `SysTick_Handler':
 D:/RTOS/Week1/Week1_ex1/FreeRTOS/portable/GCC/ARM_CM3/port.c:492: multiple definition of `SysTick_Handler'; CMakeFiles/Week1_ex1.dir/Core/Src/stm32f1xx_it.c.obj:D:/RTOS/Week1/Week1_ex1/Core/Src/stm32f1xx_it.c:185: first defined here
+```
