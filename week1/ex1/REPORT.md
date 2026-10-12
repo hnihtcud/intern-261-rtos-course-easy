@@ -1,6 +1,6 @@
 # Report — Week 1 / Ex1
 
-`student_id`: 2510379    Commit của PREDICTION.md: ______
+`student_id`: 2510379    Commit của PREDICTION.md: e1fb7f1
 
 ## 1. Số đo
 | Đại lượng | Giá trị |
@@ -12,7 +12,7 @@
 | Sai số trung bình vs `BLINK_PERIOD_MS` | -1.47 ms|
 | `uxTaskGetStackHighWaterMark()` của bringup_task | 68 words |
 
-Ảnh PulseView (>= 10 chu kỳ, đọc được giá trị): `![](do_ex1.png)`
+Ảnh PulseView (>= 10 chu kỳ, đọc được giá trị): ![](do_ex1.png)
 
 ## 2. Ba handler của kernel
 | Tên trong port ARM_CM3 | Tên trong vector table | Nhiệm vụ |
@@ -44,7 +44,9 @@ Cách sửa:
 ## 3. Tại sao HAL timebase phải sang TIM4
 Phải trả lời được: `HAL_IncTick()` chạy ở đâu, `configKERNEL_INTERRUPT_PRIORITY`
 ảnh hưởng gì đến nó, và `HAL_Delay()` / `vTaskDelay()` khác nhau chỗ nào.
+
 **Trả lời:**
+
 - Trước tiên, HAL có biến đếm thời gian là uwTick, khi HAL vẫn dùng SysTick làm Timebase, `HAL_IncTick()` được gọi trong hàm xử lý ngắt `SysTick_Handler()`. Với cấu hình timebase HAL 1 ms, mỗi lần gọi `HAL_IncTick()` sẽ tăng uwTick thêm 1. Nó có tác dụng theo dõi Delay và Timeout HAL. 
 - RTOS dùng SysTick làm xung nhịp thời gian cho Kernel. Mỗi lần xử lý ngắt SysTick, kernel sẽ tăng bộ đếm tick của RTOS. Nếu HAL và RTOS cùng dùng SysTick có thể xảy ra các tình huống:
     + Handler chỉ gọi `HAL_IncTick()`: Task sẽ bị treo vì khi gọi vTaskDelay() với thời gian chờ khác 0 thì task sẽ ở trạng thái Blocked và không được đánh thức theo thời gian, vì tick kernel không tăng.
@@ -58,7 +60,9 @@ Phải trả lời được: `HAL_IncTick()` chạy ở đâu, `configKERNEL_INT
 ## 4. Lệch so với dự đoán
 Với mỗi mục trong `PREDICTION.md` lệch so đo: lệch bao nhiêu, và **nguyên nhân vật lý**
 (không được trả lời "do sai số").
+
 **Trả lời:**
+
 - `BLINK_PERIOD_MS` (từ params.h): 149 ms
 - Chu kỳ dự đoán: 148 ms
 - Chu kỳ đo được trung bình: 147.53 ms
@@ -70,7 +74,9 @@ Với mỗi mục trong `PREDICTION.md` lệch so đo: lệch bao nhiêu, và **
 ## 5. Câu hỏi đánh đổi
 `configTICK_RATE_HZ` = 1000 trong bài này. Dựa vào số đo của **bạn**, nếu hạ xuống
 100 Hz thì chu kỳ LED và sai số thay đổi thế nào? Trả lời bằng con số, không bằng lý thuyết.
+
 **Trả lời:**
+
 - `BLINK_PERIOD_MS` (từ params.h): 149 ms
 - Thời gian delay: 149 / 2 = 74 ms
 - Chu kỳ dự đoán: 148 ms
