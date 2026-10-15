@@ -15,7 +15,7 @@ Cách tính CPU share từ ảnh PulseView (mô tả ngắn):
 **Trả lời:**
 - CPU Share = (Tổng thời gian của Task chiếm CPU)/(Tổng thời gian cửa sổ đang đo)*100.
 
-- **Minh chứng bước 4:** [minh_chung_1](image/ex2_3_1.jpg), [minh_chung_2](image/ex2_3_2.jpg), [minh_chung_3](image/ex2_3_3.jpg) 
+- **Minh chứng bước 4:** [minh_chung_1](image/ex2_3_1.jpg), [minh_chung_2](image/ex_2_3_2.jpg), [minh_chung_3](image/ex_2_3_3.jpg) 
 
 ## 2. Preemption nhìn thấy ở đâu
 Trên ảnh **bước 4** (cùng ưu tiên, round-robin), chỉ ra ít nhất **2 thời điểm**
