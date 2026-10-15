@@ -26,6 +26,7 @@ và vì sao (hết time slice, không phải block).
 |---|---|---|---|
 | 3328 | B | C | Hết lượt time slice 1 ms; Scheduler chọn C cùng ưu tiên, đang Ready. B không block/yield. |
 | 4328 | C | A | Hết lượt time slice 1 ms; Scheduler chọn task tiếp theo là A cùng ưu tiên, đang Ready. C không block/yield. |
+
 Ở **bước 2** (ưu tiên khác nhau, đều busy-loop không block): giải thích vì sao ảnh
 của bạn cho thấy **0 thời điểm preemption**, dù chạy bao lâu đi nữa — dựa vào điều kiện preemption của FreeRTOS, không phải "vì ảnh chụp chưa đủ dài".
 
