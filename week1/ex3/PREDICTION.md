@@ -30,6 +30,7 @@ kịp các mốc lịch 10 ms. Cả hai có chu kỳ dự đoán gần 10 ms.
        = 500 × (10 − 17)
        = −3500 ms.
 ```
+
    + Nguyên nhân chính là việc quy đổi chu kỳ yêu cầu 17 ms xuống
 10 ms. Task hoàn thành 500 chu kỳ sớm hơn lịch mong muốn khoảng 3,5 giây.
 
