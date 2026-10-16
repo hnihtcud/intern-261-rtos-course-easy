@@ -17,7 +17,7 @@
 
 **Trả lời:**
 - Cấu hình ở trường hợp 3 và 4 có độ lớn drift lớn nhất.
-### Trường hợp 3 và 4: tick rate 100 Hz
+- Trường hợp 3 và 4: tick rate 100 Hz
 
 - Một tick dài 10 ms. Khi dùng pdMS_TO_TICKS(17) mặc định,
 phép chia nguyên cho 1 tick, tương ứng 10 ms.
@@ -33,7 +33,7 @@ kịp các mốc lịch 10 ms. Cả hai có chu kỳ dự đoán gần 10 ms.
 - Nguyên nhân chính là việc quy đổi chu kỳ yêu cầu 17 ms xuống
 10 ms. Task hoàn thành 500 chu kỳ sớm hơn lịch mong muốn khoảng 3,5 giây.
 
-### Trường hợp 1: vTaskDelay ở 1000 Hz
+- Trường hợp 1: vTaskDelay ở 1000 Hz
    + Một tick dài 1000 µs. Tải tối đa là: WORK_JITTER_US / 1000 = 1400 / 1000 = 1,4 ms
    + Khi task bắt đầu gần đầu tick: Tải dưới 1000 µs: gọi delay trong cùng tick, chu kỳ khoảng 17 ms. Tải từ 1000 đến 1400 µs: tick count đã tăng thêm 1 trước khi gọi delay, chu kỳ khoảng 18 ms.
    + Nếu ta giả sử tải phân bố đều liên tục, ta tính được tỷ lệ vòng kéo dài thêm một tick:
@@ -48,9 +48,9 @@ kịp các mốc lịch 10 ms. Cả hai có chu kỳ dự đoán gần 10 ms.
           = 500 × (400 / 1400) x 1
           ≈ 142,86 ms
 
-### Trường hợp 2: xTaskDelayUntil ở 1000 Hz
+- Trường hợp 2: xTaskDelayUntil ở 1000 Hz
 
-- Hàm giữ các mốc lịch cách nhau 17 tick, tương ứng 17 ms. Tải tối đa 1,4 ms nhỏ hơn chu kỳ 17 ms nên task có thể hoàn thành trước mốc tiếp theo. Vì vậy, chu kỳ gần 17 ms, jitter gần 0 và drift gần 0.
+   + Hàm giữ các mốc lịch cách nhau 17 tick, tương ứng 17 ms. Tải tối đa 1,4 ms nhỏ hơn chu kỳ 17 ms nên task có thể hoàn thành trước mốc tiếp theo. Vì vậy, chu kỳ gần 17 ms, jitter gần 0 và drift gần 0.
 
 3. `PERIOD_MS` = 17 . Với tick 100 Hz, một tick = 10 ms, thời gian delay 17 ms được quy đổi xuống 1 tick, tương ứng 10 ms. Sai số hệ thống: `(10 − 17) / 17 × 100 ≈ −41,176%`.
 4. Jitter ở tick 1000 Hz so với 100 Hz: lớn hơn / nhỏ hơn / bằng? Vì sao?
