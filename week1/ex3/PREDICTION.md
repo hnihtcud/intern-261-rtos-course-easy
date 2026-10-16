@@ -19,10 +19,10 @@
 - Cấu hình ở trường hợp 3 và 4 có độ lớn drift lớn nhất.
 - Trường hợp 3 và 4: tick rate 100 Hz
 
-- Một tick dài 10 ms. Khi dùng pdMS_TO_TICKS(17) mặc định,
+   + Một tick dài 10 ms. Khi dùng pdMS_TO_TICKS(17) mặc định,
 phép chia nguyên cho 1 tick, tương ứng 10 ms.
-- Tải tối đa: `WORK_JITTER_US / 1000 = 1,4 ms < 10 ms`
-- Nếu task bắt đầu gần đầu tick, phần tải giả hoàn thành trong cùng
+   + Tải tối đa: `WORK_JITTER_US / 1000 = 1,4 ms < 10 ms`
+   + Nếu task bắt đầu gần đầu tick, phần tải giả hoàn thành trong cùng
 tick. Cấu hình 3 chưa bị kéo dài thêm tick do tải; cấu hình 4 vẫn
 kịp các mốc lịch 10 ms. Cả hai có chu kỳ dự đoán gần 10 ms.
 ```
@@ -30,7 +30,7 @@ kịp các mốc lịch 10 ms. Cả hai có chu kỳ dự đoán gần 10 ms.
        = 500 × (10 − 17)
        = −3500 ms.
 ```
-- Nguyên nhân chính là việc quy đổi chu kỳ yêu cầu 17 ms xuống
+   + Nguyên nhân chính là việc quy đổi chu kỳ yêu cầu 17 ms xuống
 10 ms. Task hoàn thành 500 chu kỳ sớm hơn lịch mong muốn khoảng 3,5 giây.
 
 - Trường hợp 1: vTaskDelay ở 1000 Hz
