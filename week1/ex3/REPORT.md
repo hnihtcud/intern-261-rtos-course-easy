@@ -1,6 +1,7 @@
 # Report — Week 1 / Ex3
 
-`student_id`: 2510379    Commit của PREDICTION.md: ______
+`student_id`: 2510379    Commit của PREDICTION.md: 387925e
+ 
 
 ## 1. Bảng thống kê (tính từ CSV, không đọc tay)
 | # | Delay | Tick | min (ms) | max (ms) | tb (ms) | jitter = max−min (us) | drift tổng (ms) |
