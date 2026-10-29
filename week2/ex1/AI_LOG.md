@@ -1,0 +1,4 @@
+| Prompt (tóm tắt) | AI dùng | Mình giữ lại gì / sửa gì |
+|---|---|---|
+| Viết script `pilot_queue.py` cho câu 2: đọc dữ liệu độ đầy queue từ file `.bin`, xuất CSV và vẽ đồ thị hai queue theo thời gian. | ChatGPT | Giữ cách đọc bằng `struct` và vẽ bằng Matplotlib. Cấu hình tick rate 1000 Hz, queue dài 12; bổ sung lần đo cả hai timeout là `portMAX_DELAY`. Dùng dữ liệu RAM thu từ board thật. |
+| Viết script `analyze_filter.py` cho câu 6: đọc log UART với cửa sổ 8 và 16 mẫu, ước lượng độ trễ tín hiệu bằng tương quan và nội suy, xuất CSV. | ChatGPT | Giữ cách kiểm tra trung bình trượt và tách đoạn khi `seq` không liên tục. Dùng chu kỳ lấy mẫu giả định 8 ms, chọn đoạn đủ điều kiện dài nhất để so sánh. Phân biệt độ trễ tín hiệu với thời gian xử lý, chờ queue và truyền UART. |
