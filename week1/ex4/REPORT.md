@@ -13,7 +13,7 @@
 | Còn lại / chưa dùng | — | 7220 |
 | **Tổng** | | **20480** |
 
-`.map` commit tại: `______`
+`.map` commit tại: `b842f5c`
 
 ## 2. Số lúc chạy (dán nguyên văn log UART)
 ```
@@ -30,8 +30,8 @@ Current heap target: PASS
 
 | Đại lượng | Words | Bytes |
 |---|---|---|
-| `xPortGetFreeHeapSize()` | — | 6296 |
-| `xPortGetMinimumEverFreeHeapSize()` | — | 6296 |
+| `xPortGetFreeHeapSize()` | 1574 | 6296 |
+| `xPortGetMinimumEverFreeHeapSize()` | 1574 | 6296 |
 | HWM `dyn_task` | 133 | 532 |
 | HWM `stat_task` | 70 | 280 |
 | HWM `ram_report_task` | 328 | 1312 |
@@ -91,6 +91,7 @@ Tại sao trong `vApplicationStackOverflowHook` không được gọi hàm UART 
 | 3 | 217 | | |
 | 4 | 218 | 31 | Chưa đủ biên an toàn |
 | 5 | 219 | 33 | Biên an toàn >= 32 bit. |
+
 Giá trị cuối cùng chọn: 219 words. Biên an toàn: 33 words. Lý do chọn biên đó:
 - Em chọn stack 219 words, với HWM đo được 33 words = 132 bytes, đáp ứng yêu cầu biên an toàn tối thiểu 32 words của bài (được đo khi có mảng HOG_DEPTH_BYTES). Phần stack còn trống này giúp dự phòng mức sử dụng cao hơn chưa xuất hiện trong lần đo, đồng thời hạn chế cấp phát dư thừa. 
 ## 7. Lệch so với dự đoán
