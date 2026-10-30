@@ -2,8 +2,8 @@
 
 `student_id`: 2510379    Commit của PREDICTION.md: 1184c5b
 ## 1. Ảnh đo
-Binary semaphore: ![](images/inversion_binsem.png)
-Mutex: ![](images/inversion_mutex.png)
+Binary semaphore: ![](./images/inversion_binsem.png)
+Mutex: ![](./images/inversion_mutex.png)
 
 Trên mỗi ảnh, đánh dấu: thời điểm `task_high` sẵn sàng chạy (t0), thời điểm nó
 thực sự chạy (t1). Thời gian block = t1 − t0.
