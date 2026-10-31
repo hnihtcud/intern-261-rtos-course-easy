@@ -8,7 +8,7 @@
  * with PRODUCER0_USE_NOTIFY so the two configurations build from the same
  * source. */
 #ifndef PRODUCER0_USE_NOTIFY
-#define PRODUCER0_USE_NOTIFY 0
+#define PRODUCER0_USE_NOTIFY 1
 #endif
 
 void sync_init(void);
@@ -19,5 +19,5 @@ void sync_task(void *argument);
 /* Handle of sync_task, needed by producer_0 to call xTaskNotifyGive when
  * PRODUCER0_USE_NOTIFY is set. */
 extern void *sync_task_handle;
-
+void broadcast_test_create(void);
 #endif /* SYNC_TASKS_H */
