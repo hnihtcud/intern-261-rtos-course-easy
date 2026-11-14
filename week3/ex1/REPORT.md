@@ -7,7 +7,6 @@ Mô tả/log/ảnh lúc priority sai (bước 4 README) + giải thích chính x
 assert được kích hoạt (nêu đúng tên macro và điều kiện).
 
 **Trả lời:**
-## 1. Bằng chứng configASSERT
 
 - Mô tả trạng thái khi đặt priority sai:
     - Em đặt priority EXTI1 bằng 4 qua lệnh `HAL_NVIC_SetPriority(EXTI1_IRQn, 4, 0)`. Khi nhấn PB1, cạnh xuống kích hoạt ngắt và chương trình đi theo chuỗi: `EXTI1_IRQHandler()`, `HAL_GPIO_EXTI_IRQHandler()`, `HAL_GPIO_EXTI_Callback()`, `exti_button_isr_handler()`, `vTaskGenericNotifyGiveFromISR()`, `vPortValidateInterruptPriority()`.
