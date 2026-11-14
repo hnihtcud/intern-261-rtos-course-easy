@@ -17,7 +17,11 @@ void app_main(void)
      *       priority high enough that it drains rx_stream faster than bytes
      *       arrive at RX_BAUD -- justify the number in REPORT.md with the
      *       byte time you computed. */
-
+     BaseType_t result;
+    result = xTaskCreate(demo_task, "demo", 128, NULL, 2, NULL);
+    configASSERT(result == pdPASS);
+    result = xTaskCreate(parser_task, "parser", 256, NULL, 6, NULL);
+    configASSERT(result == pdPASS);
     vTaskStartScheduler();
 
     for (;;) {
