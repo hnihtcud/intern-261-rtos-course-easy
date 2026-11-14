@@ -92,7 +92,6 @@ Với `DEBOUNCE_MS` của bạn, nếu giảm xuống còn một nửa thì tín
 còn sạch không? Đo lại trên board của bạn, không suy luận suông.
 
 **Trả lời:**
-## 6. Câu hỏi đánh đổi
 
 Em giảm `DEBOUNCE_MS` từ **30 ms xuống 15 ms**, giữ `LONGPRESS_MS = 600 ms`, sau đó nạp lại chương trình và đo trên board.
 
